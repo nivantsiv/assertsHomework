@@ -1,5 +1,6 @@
 import unittest
 
+
 class TestSum(unittest.TestCase):
 
     def test_assert_equal(self):
@@ -48,6 +49,24 @@ class TestSum(unittest.TestCase):
         my_list = [1, 5, 10, 30]
         self.assertNotIn(10, my_list, "not in list")
 
+    def test_assert_is_instance(self):
+        class Mytest:
+            x = 2
+        class Mytest2:
+            x = 3
+        objectName = Mytest()
+        message = "given object is not instance of Myclass."
+        self.assertIsInstance(objectName, Mytest2, message)
+
+    def test_assert_not_is_instance(self):
+        class Mytest:
+            x = 2
+        class Mytest2:
+            x = 3
+        objectName = Mytest()
+        message = "given object is instance of Myclass."
+        self.assertNotIsInstance(objectName, Mytest, message)
+
     def test_assert_greater(self):
         self.assertGreater(5, 6, "Value is not greater")
 
@@ -59,7 +78,6 @@ class TestSum(unittest.TestCase):
 
     def test_assert_less_equal(self):
         self.assertLessEqual(10, 6, "Value is not less or equal")
-
 
 
 if __name__ == '__main__':
