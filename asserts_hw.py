@@ -67,6 +67,20 @@ class TestSum(unittest.TestCase):
         message = "given object is instance of Myclass."
         self.assertNotIsInstance(objectName, Mytest, message)
 
+    def test_assert_almost_equal(self):
+        first = 0.1488
+        second = 0.1499
+        decimalPlace = 3
+        message = "first and second are not almost equal"
+        self.assertAlmostEqual(first, second, decimalPlace, message)
+
+    def test_assert_not_almost_equal(self):
+        first = 0.1488
+        second = 0.1499
+        decimalPlace = 2
+        message = "first and second are almost equal"
+        self.assertNotAlmostEqual(first, second, decimalPlace, message)
+
     def test_assert_greater(self):
         self.assertGreater(5, 6, "Value is not greater")
 
