@@ -1,10 +1,26 @@
 import unittest
 
+from tomorrow_date import devide
+
 
 class TestSum(unittest.TestCase):
+    def setUp(self):
+        print("before each test")
+
+    def tearDown(self):
+        print("after each test")
+
+    @classmethod
+    def setUpClass(cls):
+        print("before all tests")
+
+    @classmethod
+    def tearDownClass(cls):
+        print("after all tests")
 
     def test_assert_equal(self):
-        self.assertEqual(sum([1, 2, 3]), 5, "Should be 6")
+        print("this is test")
+        self.assertEqual(sum([1, 2, 3]), 6, "Should be 6")
 
     def test_assert_not_equal(self):
         self.assertNotEqual(sum([1, 2, 3]), 6, "Should not be 6")
@@ -92,6 +108,10 @@ class TestSum(unittest.TestCase):
 
     def test_assert_less_equal(self):
         self.assertLessEqual(10, 6, "Value is not less or equal")
+
+    def test_assert_raises(self):
+        with self.assertRaises(ZeroDivisionError):
+            devide(6, 1)
 
 
 if __name__ == '__main__':
